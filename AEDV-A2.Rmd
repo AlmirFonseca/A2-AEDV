@@ -1,16 +1,13 @@
----
+	---
 title: "Trabalho de Análise Exploratória de Dados e Visualização 2"
 author: "Abner Lucas Pereira Cardoso Vera, Almir Augusto Fonseca"
 date: "`r Sys.Date()`"
 output: html_document
 ---
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
 ## Importando Bibliotecas 
-
 ```{r, message = FALSE}
   library(tidyverse)
   library(lubridate)
@@ -20,28 +17,18 @@ knitr::opts_chunk$set(echo = TRUE)
   library(readxl)
   library("dplyr")
 ```
-
-
 ## Base de dados 
-
 Para o nosso trabalho, escolhemos trabalhar o tema dos refugiados e, para isso, buscamos bases de dados nas maiores instituições que estudam esse tema: ONU (Organização das Nações Unidas) e ACNUR (Alto-comissariado das Nações Unidas para os Refugiados), braço da ONU voltado para essa causa.
-
 Para isso, escolhemos 2 bases de dados:
-
 1. *Base de dados sobre refugiados, de 2019*. Essa base, composta por 22 planilhas, traz dados sobre a classificação dos refugiados, os fluxos, a divisão deles segundo gênero, idade...
 2. *Base de dados sobre a população mundial ao longo dos anos, entre 1960 e 2021*. Essa base traz a população de cada país nesse intervalo, além de alguns subtotais por sub-região e região, além do total da população global
-
 A partir dessas bases, realizamos a filtragem e limpeza dos dados utilizando o software Excel. Resumidamente, o processo se sucedeu na seguinte ordem:
-
 1. Retirada de cabeçalhos e rodapés.
 2. Descarte de planilhas/colunas desnecessárias.
 3. Com o uso da ferramenta "Power Query", fizemos a união das tabelas segundo a coluna "Country Code", que serve como um ID de cada país, sendo útil para mesclar adequadamente planilhas ou até bases de dados que possuem esse tipo de referência.
 4. Preenchimento e correção manual de células vazias ou dados faltantes.
-
 Ao fim desse processo, obtivemos a seguinte base de dados, a qual será analisada a seguir:
-
 ### Base de dados:
-
 ```{r, base de dados dados_refugiados}
   dados_refugiados <- read_excel("DadosRefugiados.xlsx", 
          sheet = "Planilha1")
@@ -49,11 +36,9 @@ Ao fim desse processo, obtivemos a seguinte base de dados, a qual será analisad
 ```
   
 ### Colunas da base de dados:
-
 ```{r, colunas de dados_refugiados}
   colnames(dados_refugiados)
 ```
-
 ### Classificação de variáveis:
     
 - Country Code: Qualitativa nominal  
@@ -72,13 +57,11 @@ Ao fim desse processo, obtivemos a seguinte base de dados, a qual será analisad
 ### Reorganização do nome das colunas:
   
 ```{r}
-  colnames(dados_refugiados) <- c()
-```
-
+  colnames(dados_refugiados) <- c("Country_Code", "Country_Name", "Region_Name", "Sub-region_name", "Population_in_2019", "Total_population_of_concern", "Refugee(Destiny_Country)", "Asylum-seekers(Destiny_Country)", "Total(Destiny_Country)", "Refugee(Origin_Country)", "Asylum-seekers(Origin_Country)", "Total(Origin_Country)")
+  colnames(dados_refugiados)
+``
 ## Análise exploratória de dados
-
 1. Análise unidimensional das variáveis
-
   - Country code: "pequeno resumo"
   
 ```{r}
