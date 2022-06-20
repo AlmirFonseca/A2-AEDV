@@ -1,6 +1,6 @@
 ---
-title: "AEDV_A2"
-author: "Abner Lucas Pereira Cardoso Vera"
+title: "Trabalho de Análise Exploratória de Dados e Visualização 2"
+author: "Abner Lucas Pereira Cardoso Vera \n Almir Augusto Fonseca"
 date: "`r Sys.Date()`"
 output: pdf_document
 ---
@@ -25,4 +25,4 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #Análise exploratória de dados
 
-#
+#Visualização
