@@ -1,0 +1,28 @@
+---
+title: "AEDV_A2"
+author: "Abner Lucas Pereira Cardoso Vera"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Importando Bibliotecas 
+
+```{r, message = FALSE}
+  library(tidyverse)
+  library(lubridate)
+  library(ggrepel)
+  library(gridExtra)
+  library(grid)
+  library(readxl)
+```
+
+
+#Base de dados 
+
+#Análise exploratória de dados
+
+#
