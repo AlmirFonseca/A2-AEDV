@@ -21,8 +21,17 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-#Base de dados 
+# Base de dados 
 
-#Análise exploratória de dados
+1. Breve resumo sobre a base de dados
 
-#Visualização
+```{r, colnames de dados_refugiados}
+  dados_refugiados <- read_excel("DadosRefugiados.xlsx", 
+         sheet = "Planilha1")
+  colnames(dados_refugiados)
+```
+
+
+# Análise exploratória de dados
+
+# Visualização
