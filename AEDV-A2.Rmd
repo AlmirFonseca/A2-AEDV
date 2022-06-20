@@ -1,8 +1,8 @@
 ---
 title: "Trabalho de Análise Exploratória de Dados e Visualização 2"
-author: "Abner Lucas Pereira Cardoso Vera \n Almir Augusto Fonseca"
+author: "Abner Lucas Pereira Cardoso Vera, Almir Augusto Fonseca"
 date: "`r Sys.Date()`"
-output: pdf_document
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -18,20 +18,60 @@ knitr::opts_chunk$set(echo = TRUE)
   library(gridExtra)
   library(grid)
   library(readxl)
+  library("dplyr")
 ```
 
 
 # Base de dados 
 
-1. Breve resumo sobre a base de dados
+1. Base de dados utilizada: "Dados sobre refugiados (ACNUR) 2019"
 
-```{r, colnames de dados_refugiados}
+  -  Base de dados:
+
+```{r, base de dados dados_refugiados}
   dados_refugiados <- read_excel("DadosRefugiados.xlsx", 
          sheet = "Planilha1")
+  dados_refugiados
+```
+  
+  - Colunas da base de dados:
+
+```{r, colunas de dados_refugiados}
   colnames(dados_refugiados)
 ```
 
 
+  - Classificação de variáveis:
+    
+    - <p> Country Code -> Qualitativa nominal  
+    - <p> Country Name -> Qualitativa nominal 
+    - <p> Region Name -> Qualitativa nominal 
+    - <p> Sub-region name -> Qualitativa nominal 
+    - <p> Population in 2019 -> Quantitativa discreta 
+    - <p> Total population of concern -> Quantitativa discreta 
+    - <p> Refugee (Destiny Country) -> Quantitativa discreta 
+    - <p> Asylum-seekers (Destiny  Country) -> Quantitativa discreta 
+    - <p> Total (Destiny Country) -> Quantitativa discreta 
+    - <p> Refugees (Origin Country) -> Quantitativa discreta 
+    - <p> Asylum seekers (Origin Country) -> Quantitativa discreta 
+    - <p>  Total (Origin Country) -> Quantitativa discreta 
+    
+  - Reorganização do nome das colunas:
+  
+```{r}
+  colnames(dados_refugiados) <- c()
+```
+
 # Análise exploratória de dados
 
+1. Análise unidimensional das variáveis
+
+  - Country code: "pequeno resumo"
+  
+```{r}
+```
+  
+    
+  
+  
 # Visualização
