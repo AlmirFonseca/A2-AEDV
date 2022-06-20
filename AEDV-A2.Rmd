@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Importando Bibliotecas 
+## Importando Bibliotecas 
 
 ```{r, message = FALSE}
   library(tidyverse)
@@ -22,11 +22,25 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-# Base de dados 
+## Base de dados 
 
-1. Base de dados utilizada: "Dados sobre refugiados (ACNUR) 2019"
+Para o nosso trabalho, escolhemos trabalhar o tema dos refugiados e, para isso, buscamos bases de dados nas maiores instituições que estudam esse tema: ONU (Organização das Nações Unidas) e ACNUR (Alto-comissariado das Nações Unidas para os Refugiados), braço da ONU voltado para essa causa.
 
-  -  Base de dados:
+Para isso, escolhemos 2 bases de dados:
+
+1. *Base de dados sobre refugiados, de 2019*. Essa base, composta por 22 planilhas, traz dados sobre a classificação dos refugiados, os fluxos, a divisão deles segundo gênero, idade...
+2. *Base de dados sobre a população mundial ao longo dos anos, entre 1960 e 2021*. Essa base traz a população de cada país nesse intervalo, além de alguns subtotais por sub-região e região, além do total da população global
+
+A partir dessas bases, realizamos a filtragem e limpeza dos dados utilizando o software Excel. Resumidamente, o processo se sucedeu na seguinte ordem:
+
+1. Retirada de cabeçalhos e rodapés.
+2. Descarte de planilhas/colunas desnecessárias.
+3. Com o uso da ferramenta "Power Query", fizemos a união das tabelas segundo a coluna "Country Code", que serve como um ID de cada país, sendo útil para mesclar adequadamente planilhas ou até bases de dados que possuem esse tipo de referência.
+4. Preenchimento e correção manual de células vazias ou dados faltantes.
+
+Ao fim desse processo, obtivemos a seguinte base de dados, a qual será analisada a seguir:
+
+### Base de dados:
 
 ```{r, base de dados dados_refugiados}
   dados_refugiados <- read_excel("DadosRefugiados.xlsx", 
@@ -34,35 +48,34 @@ knitr::opts_chunk$set(echo = TRUE)
   dados_refugiados
 ```
   
-  - Colunas da base de dados:
+### Colunas da base de dados:
 
 ```{r, colunas de dados_refugiados}
   colnames(dados_refugiados)
 ```
 
-
-  - Classificação de variáveis:
+### Classificação de variáveis:
     
-    - <p> Country Code -> Qualitativa nominal  
-    - <p> Country Name -> Qualitativa nominal 
-    - <p> Region Name -> Qualitativa nominal 
-    - <p> Sub-region name -> Qualitativa nominal 
-    - <p> Population in 2019 -> Quantitativa discreta 
-    - <p> Total population of concern -> Quantitativa discreta 
-    - <p> Refugee (Destiny Country) -> Quantitativa discreta 
-    - <p> Asylum-seekers (Destiny  Country) -> Quantitativa discreta 
-    - <p> Total (Destiny Country) -> Quantitativa discreta 
-    - <p> Refugees (Origin Country) -> Quantitativa discreta 
-    - <p> Asylum seekers (Origin Country) -> Quantitativa discreta 
-    - <p>  Total (Origin Country) -> Quantitativa discreta 
+- Country Code: Qualitativa nominal  
+- Country Name: Qualitativa nominal 
+- Region Name: Qualitativa nominal 
+- Sub-region name: Qualitativa nominal 
+- Population in 2019: Quantitativa discreta 
+- Total population of concern: Quantitativa discreta 
+- Refugee (Destiny Country): Quantitativa discreta 
+- Asylum-seekers (Destiny  Country): Quantitativa discreta 
+- Total (Destiny Country): Quantitativa discreta 
+- Refugees (Origin Country): Quantitativa discreta 
+- Asylum seekers (Origin Country): Quantitativa discreta 
+- Total (Origin Country): Quantitativa discreta 
     
-  - Reorganização do nome das colunas:
+### Reorganização do nome das colunas:
   
 ```{r}
   colnames(dados_refugiados) <- c()
 ```
 
-# Análise exploratória de dados
+## Análise exploratória de dados
 
 1. Análise unidimensional das variáveis
 
@@ -74,4 +87,4 @@ knitr::opts_chunk$set(echo = TRUE)
     
   
   
-# Visualização
+## Visualização
